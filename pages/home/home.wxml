@@ -2,3 +2,16 @@
 <text class="title">Hello World</text>
 <button size="mini">按钮</button>
 <!-- <image src=""></image> -->
+
+<!-- 2,获取用户信息的方式 -->
+<button size="mini"
+ open-type="getUserInfo"
+ bindgetuserinfo="handleGetUserInfo"
+ >获取授权</button>
+
+<!-- 3，获取用户信息的方式 -->
+ <open-data type="userNickName"></open-data>
+<open-data type="userAvatarUrl"></open-data>
+
+<view wx:for="{{list}}">{{item.title}}</view>
+<view bindtap="handleViewClick">{{content}}</view>
