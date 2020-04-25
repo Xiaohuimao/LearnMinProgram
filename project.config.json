@@ -15,7 +15,7 @@
 		"scopeDataCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.10.4",
 	"appid": "wxb6cb6ec72834b7e6",
 	"projectname": "MinProgram",
 	"debugOptions": {
@@ -33,13 +33,28 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "关于界面",
+					"pathName": "pages/about/about",
+					"scene": null
+				}
+			]
 		}
 	}
 }
