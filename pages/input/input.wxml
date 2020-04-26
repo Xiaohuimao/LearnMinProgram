@@ -1,0 +1,20 @@
+<!--pages/input/input.wxml-->
+<!-- 1,input的基本使用 -->
+<input></input>
+
+<!-- 2,value：input中的默认值 -->
+<input value="哈哈"></input>
+
+<!-- 3，type： 决定键盘的类型（英文字母+其他符合/数字/身份证） -->
+<input type="number"></input>
+
+<!-- 4,password: 暗文 -->
+<input password></input>
+
+<!-- 5,placeholder: 占位符 -->
+<input placeholder="meng"></input>
+
+<!-- 6,input绑定事件 -->
+<input bindinput="handleInput"
+  bindfocus="handleFocus"
+  bindblur="handleBlur"></input>
