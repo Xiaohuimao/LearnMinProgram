@@ -1,0 +1,99 @@
+<!--pages/wxml/wxml.wxml-->
+<!-- 1,wxml的格式 -->
+<!-- <view></view> -->
+<!-- 部分组件支持单标签 -->
+<!-- <image/> -->
+<!-- <input/> -->
+<!-- 属性区分大小写 -->
+<!-- <view Class="" class=""></view> -->
+
+<!-- 2，Mustache语法 -->
+<view>{{message}}</view>
+<view>{{firstname}} {{lastname}}</view>
+<view>{{firstname + " " + lastname}}</view>
+<view>{{age >= 18 ? "成年人" : "未成年人"}}</view>
+<view>{{nowtime}}</view>
+
+<button size="mini" bindtap="handleSwitchColor">切换颜色</button>
+<view class="box {{isActive ? 'active' : ''}}">哈哈哈</view>
+
+<!-- 3,条件判断 -->
+<!-- 3.1,wx:if的使用 -->
+<button size="mini" bindtap="handleSwitchShow">切换显示</button>
+<view wx:if="{{isShow}}">哈哈哈</view>
+
+<!-- 3.2,wx:elif/wx:else -->
+<button size="mini" bindtap="handleIncrement">分数+6</button>
+<view wx:if="{{score>=90}}">优秀</view>
+<view wx:elif="{{score>=80}}">良好</view>
+<view wx:elif="{{score>=60}}">及格</view>
+<view wx:else>不及格</view>
+
+<!-- 4,hidden属性 -->
+<view hidden="{{false}}">我是hidden属性控制的内容</view>
+
+<!-- wx:if和hidden隐藏组件时有什么区别 -->
+<!-- 
+  hidden：将一个组件隐藏起来时，该组件依然是存在的，只是设置display为none
+  wx:if: 将一个组件隐藏起来时，该组件根本不存在（压根没有创建）
+ -->
+<view hidden="{{false}}">我是hidden属性控制的内容</view>
+<view wx:if="{{true}}">我是通过wx:if控制的内容</view>
+
+<!-- 5，列表渲染 -->
+<!-- 5.1,wx:for -->
+<!-- 遍历数组/字符串/数字 -->
+<!-- <view wx:for="{{['abc','cba','cab']}}">{{item}} {{index}}</view>
+<view wx:for="meng">{{item}} {{index}}</view>
+<view wx:for='{{9}}'>{{item}}</view> -->
+
+<!-- 5.2,block标签(不是组件是标签) -->
+<!-- <block wx:if="{{isShow}}">
+  <button>按钮</button>
+  <view>额呵呵</view>
+  <text>我是内容</text>
+</block>
+
+
+<block wx:for="{{3}}">
+  <button>按钮</button>
+  <view>额呵呵</view>
+  <text>我是内容</text>
+</block> -->
+
+<!-- 5.3,item、index起名字-->
+<!-- 起别名时不能有- -->
+<!-- <view wx:for="{{movies}}" wx:for-item="movie" wx:for-index="i">{{movie}} {{i}}</view>
+
+<block wx:for="{{nums}}" wx:for-item="innernums">
+  <block wx:for="{{innernums}}">
+    <view>{{item}}</view>
+  </block>
+</block> -->
+
+<!-- 5.4,key的作用 -->
+<view wx:for="{{letters}}" wx:key="index">{{item}}</view>
+
+
+<!-- 6,template -->
+<!-- 
+之前的时候，小程序不支持自定义组件，为了进行代码的复用：template（现在用的比较少）
+模板中包裹的内容，在使用前，是不进行任何渲染的
+ -->
+ 
+ <!-- <template name="contentItem">
+  <button size="mini">{{btnText}}</button>
+  <view>{{content}}</view>
+ </template> -->
+
+<!-- 可以把template抽取，使用import标签导入 -->
+<import src="/wxml/template.wxml"/>
+<!-- 使用 -->
+ <template is="contentItem" data="{{btnText: '按钮',content:'哈哈'}}"></template>
+
+ <template is="contentItem" data="{{btnText: '警告',content:'嘿嘿嘿'}}"></template>
+
+ <!-- include不能导入模板 -->
+ <import src="/wxml/abc.wxml"/>
+<!-- <include src="./abc.wxml/"/> -->
+ <template is="abc"></template>
