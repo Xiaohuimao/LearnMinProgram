@@ -1,0 +1,14 @@
+// js代码(不支持es6)
+var message = "Hello World";
+var name = "meng";
+
+var sum = function (num1, num2) {
+  return num1 + num2
+}
+
+// commonjs的模块化导出的方法
+module.exports = {
+  message: message,
+  name: name,
+  sum: sum
+}
