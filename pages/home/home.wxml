@@ -2,3 +2,61 @@
 <text class="title">Hello World</text>
 <button size="mini">按钮</button>
 <!-- <image src=""></image> -->
+
+<!-- 1，自定义组件的基本使用 -->
+<!-- <my-cpn></my-cpn>
+<my-cpn/> -->
+
+<!-- 2，自定义组件的样式细节 -->
+<!-- <my-style></my-style> -->
+
+<!-- 3, 给自定义组件传递数据/样式 -->
+<!-- 这里类名不能包含大写 -->
+<my-prop title="哈哈" titleclass="red"/>
+<my-prop title="呵呵呵" titleclass="green"/>
+<my-prop titleclass="bule"/>
+
+<!-- 4,自定义事件（组件向外传数据） -->
+<view>当前计数:{{conter}}</view>
+<my-event bind:increment="handleIncrement"/>
+
+<!-- 5,tab-control练习 -->
+<w-tab-control titles="{{['衣服','裤子','鞋子']}}" bind:itemclick="handleTabClick"/>
+
+<!-- 6, 直接选中组件修改数据/调用方法-->
+<button size="mini" bind:tap="handleIncrementCpn">修改组件内的数据</button>
+<my-sel id="sel-id" class="sel-class"></my-sel>
+
+<!-- 7,插槽的使用 -->
+<!-- 7.1,单个插槽的使用 -->
+<my-slot>
+  <button size="mini">我是插入的按钮</button>
+</my-slot>
+
+<my-slot>
+  <text>哈哈</text>
+</my-slot>
+
+<my-slot>
+  <image src="https://static.zhipin.com/zhipin-geek/v187/web/geek-vue/static/images/zhipin-resume_siderbar.22138ff3.png"></image>
+</my-slot>
+
+<my-slot>
+  <slider value="60"></slider>
+  <text>哈哈</text>
+</my-slot>
+
+<!-- 7.2，多个插槽的使用 -->
+<!-- 
+  注意事项：
+    1，给每一个插槽一个名字：name属性
+    2，必须在Component对象中添加一个选项：options
+ -->
+ <button size="mini" bind:tap="handleChangeShow">切换显示</button>
+<block wx:if="{{isShow}}">
+<my-mslot>
+  <button size="mini" slot="slot2">我是插入的按钮</button>
+  <slider slot="slot1"></slider>
+  <text slot="slot3">哈哈</text>
+</my-mslot>
+</block>
