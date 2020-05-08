@@ -2,3 +2,25 @@
 <text class="title">Hello World</text>
 <button size="mini">按钮</button>
 <!-- <image src=""></image> -->
+
+<!-- 1，navigator页面跳转 -->
+<navigator url="/pages/detail/detail">跳转到详情页</navigator>
+
+<!-- 2,navigtor属性：open-type -->
+<!-- 默认属性，跳转至一个非tabbar页面，有返回按钮 -->
+<!-- open-type="redirect",跳转到一个非tabbar页面，覆盖上一页面，没有返回按钮 -->
+<navigator url="/pages/detail/detail" open-type="redirect">跳到详情页(redirect)</navigator>
+
+<!-- open-type="switchTab" ,跳转到一个tabbar页面-->
+<navigator url="/pages/about/about"
+open-type="switchTab">跳到关于（switchTab）</navigator>
+
+<!-- open-type="reLaunch"关闭之前所有页面,只展示当前页面 -->
+<navigator url="/pages/detail/detail" open-type="reLaunch">跳到详情页（relaunch）</navigator>
+
+<!-- 3，跳转过程中数据的传递 -->
+<navigator url="/pages/detail/detail?name=meng&age=18">跳转到详情页</navigator>
+<view>{{title}}</view>
+
+<!-- 4，通过代码进行页面跳转 -->
+<button size="mini" bind:tap="handlePushDetail">跳转至详情页</button>
